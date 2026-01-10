@@ -1,0 +1,21 @@
+# Ambiente virtuale
+venv/
+.env/
+env/
+.venv/
+
+# File generati da Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# IDE (PyCharm)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Altro
+.DS_Store
+Thumbs.db
