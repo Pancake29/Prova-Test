@@ -1,0 +1,95 @@
+CLASSI ESEMPIO
+senti una parentesi solo. Tu hai definito una classe inizializzandola, la riga sotto hai messo
+super().__init__(nome) cosa rappresenta super?
+Ottima domanda! super() è una funzione built-in fondamentale quando lavori con l'ereditarietà.
+Rappresenta un riferimento alla classe genitore (super-classe).
+
+🎯 Cosa fa super()?
+Quando scrivi super().__init__(nome) all'interno di Cane.__init__, stai dicendo: "Prima esegui
+il __init__ della classe genitore (Animale), poi fai il resto del mio __init__".
+
+💻 Esempio Visivo
+python
+class Animale:
+    def __init__(self, nome):
+        self.nome = nome  # 1️⃣ Animale imposta .nome
+        print(f"Passo 1: Animale imposta nome = {self.nome}")
+
+class Cane(Animale):
+    def __init__(self, nome, razza):
+        super().__init__(nome)  # ⬅️ CHIAMA PRIMA Animale.__init__(nome)
+        self.razza = razza      # 2️⃣ Poi Cane imposta .razza
+        print(f"Passo 2: Cane imposta razza = {self.razza}")
+
+# Quando crei pluto:
+pluto = Cane("Pluto", "Labrador")
+🔄 Cosa Succede nell'Ordine:
+Cane("Pluto", "Labrador") → chiama Cane.__init__("Pluto", "Labrador")
+
+super().__init__(nome) → delega a Animale.__init__("Pluto")
+
+Animale.__init__ imposta self.nome = "Pluto"
+
+Torna a Cane.__init__ e imposta self.razza = "Labrador"
+
+Output:
+
+text
+Passo 1: Animale imposta nome = Pluto
+Passo 2: Cane imposta razza = Labrador
+⚡ Perché è Così Importante?
+Evita di riscrivere codice: Senza super(), dovresti copiare tutto il __init__ di Animale dentro Cane.
+
+Mantiene la logica centralizzata: Se cambi come Animale si inizializza, tutti i suoi figli (Cane, Gatto, ecc.)
+ereditano automaticamente il cambio.
+
+Gestisce l'ereditarietà multipla: In classi complesse, super() sa chiamare i genitori nell'ordine corretto.
+
+❌ Cosa Succede SENZA super()?
+python
+class CaneSbagliato(Animale):
+    def __init__(self, nome, razza):
+        # NESSUN super().__init__(nome) !
+        self.razza = razza
+        print(f"CaneSbagliato creato, ma nome non impostato!")
+
+cane_sbagliato = CaneSbagliato("Pluto", "Labrador")
+print(cane_sbagliato.nome)  # ERRORE! Attributo .nome non esiste!
+Senza super(), Animale.__init__ non viene mai chiamato, quindi l'attributo .nome non viene creato!
+
+
+Ti stai chiedendo: "Perché devo passare nome come parametro a __init__ e poi fare self.nome = nome,
+invece di scrivere direttamente self.nome = "Pluto" dentro la classe?"
+
+Opzione 1: Nome FISSO (quello che pensavi tu)
+
+python
+class CaneFisso:
+    def __init__(self):
+        self.nome = "Pluto"  # 👈 NOME SEMPRE "Pluto"!
+
+pluto = CaneFisso()
+rex = CaneFisso()  # Anche questo cane si chiamerà "Pluto"!
+print(pluto.nome)  # "Pluto"
+print(rex.nome)    # "Pluto" 😕
+Problema: Ogni cane creato avrebbe sempre lo stesso nome ("Pluto")! Non potresti creare cani con nomi diversi.
+
+Opzione 2: Nome DINAMICO (quella corretta)
+
+python
+class CaneDinamico:
+    def __init__(self, nome_del_cane):  # 👈 Riceve il nome da fuori
+        self.nome = nome_del_cane      # 👈 Lo assegna all'oggetto
+
+pluto = CaneDinamico("Pluto")
+rex = CaneDinamico("Rex")
+print(pluto.nome)  # "Pluto"
+print(rex.nome)    # "Rex" ✅
+Vantaggio: Puoi creare infinite istanze diverse, ognuna con il proprio nome!
+
+🔑 Il Concetto Chiave: Parametri vs Valori Fissi
+Concetto	Esempio	Quando si usa
+Valore fisso (hard-coded)	self.nome = "Pluto"	Quando l'attributo è sempre lo stesso per tutti gli oggetti di
+quella classe (es. self.zampe = 4 per tutti i cani).
+Parametro (dinamico)	def __init__(self, nome):
+self.nome = nome	Quando l'attributo deve essere diverso per ogni oggetto (es. nome, età, colore).

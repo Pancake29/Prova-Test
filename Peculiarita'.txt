@@ -1,0 +1,9 @@
+f string= name = "Peter"
+age = 25
+formatted_string = f"My name is {name} and I am {age} years old."
+print(formatted_string)
+Esatto! Le f-string (formatted string literals) sono uno strumento potentissimo di Python per creare stringhe con variabili incorporate.
+Hai mostrato perfettamente come funzionano.
+
+DECIMALI
+{Costo:.2f}  2f
