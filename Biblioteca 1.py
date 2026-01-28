@@ -45,3 +45,30 @@ for genere, titoli in libri_per_genere.items():
     for titolo in titoli:
         print("  • " + titolo)
     print()  # linea vuota
+
+
+
+# Trova l'indice MANUALMENTE per debug
+indice_1984 = None
+for i, libro in enumerate(libri):
+    if libro["titolo"] == "1984":
+        indice_1984 = i
+        break
+
+print(f"Indice di '1984': {indice_1984}")
+
+for i in range(len(libri)):
+    if libri[i]["titolo"] == "1984":
+        libri[i]["prestito"] = not libri[i]["prestito"]  # ✅ CORRETTO
+        print(libri)
+# COPIA E INCOLLA QUESTO ESATTO CODICE:
+
+# Modifica DIRETTA
+if indice_1984 is not None:
+    print(f"Prima: {libri[indice_1984]['prestito']}")
+    libri[indice_1984]["prestito"] = False  # Forza a False
+    print(f"Dopo: {libri[indice_1984]['prestito']}")
+print(libri)
+
+
+
