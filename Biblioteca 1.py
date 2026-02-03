@@ -70,5 +70,38 @@ if indice_1984 is not None:
     print(f"Dopo: {libri[indice_1984]['prestito']}")
 print(libri)
 
+# 1. PRIMA tutto il tuo codice esistente...
+
+# 2. POI, DOPO i cicli ma PRIMA di STEP 5:
+nuovo_libro = {
+    "titolo": "Il barone rampante",
+    "autore": "Italo Calvino",
+    "anno": 1957,
+    "genere": "romanzo",
+    "prestito": False
+}
+
+libri.append(nuovo_libro)  # UNA volta sola
+print(f"Aggiunto: {nuovo_libro['titolo']}")
+print(f"Totale libri: {len(libri)}")  # Dovrebbe essere 6
+
+anno_piu_antico = libri[0]["anno"]  # Prendi il primo come riferimento
+
+for libro in libri:
+    if libro["anno"] < anno_piu_antico:
+        anno_piu_antico = libro["anno"]
+
+print(f"Anno di pubblicazione più antico: {anno_piu_antico}")
+
+
+for libro in libri:
+    print( "titolo: " + libro["titolo"])
+    print( "autore: " + libro["autore"])
+    print( "anno: " + str(libro["anno"]))    # anno è numero, converti in stringa
+    print("genere: " + libro["genere"])
+    print( "prestito: " + str(libro["prestito"]))  # prestito è booleano
+    print( "" ) # linea vuota
+    #print(libri)
+print(f"Verifica: lista ora ha {len(libri)} libri")
 
 

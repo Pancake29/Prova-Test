@@ -1,0 +1,58 @@
+in un ciclo come posso cambiare il dato di una lista, ad esempio casa=[1,2,3] voglio mettere 4 al posto di 2
+
+METODO 1: Accesso diretto per indice
+
+casa = [1, 2, 3]
+casa[1] = 4  # Indice 1 = secondo elemento (2)
+print(casa)  # [1, 4, 3]
+
+METODO 2: Con ciclo for + indice
+python
+casa = [1, 2, 3]
+for i in range(len(casa)):  # i = 0, 1, 2
+    if casa[i] == 2:        # Trova il 2
+        casa[i] = 4         # Sostituisci con 4
+        break               # Esci dal ciclo
+print(casa)  # [1, 4, 3]
+
+METODO 3: Con enumerate()
+python
+casa = [1, 2, 3]
+for indice, valore in enumerate(casa):
+    if valore == 2:
+        casa[indice] = 4
+        break
+print(casa)  # [1, 4, 3]
+
+Le liste sono mutabili → puoi cambiare elementi direttamente con lista[indice] = nuovo_valore.
+
+enumerate() è una funzione che numera automaticamente gli elementi di una lista mentre li scorri.
+
+lista = ["a", "b", "c"]
+
+for indice, elemento in enumerate(lista):
+    print(indice, elemento)
+
+# Output:
+# 0 a
+# 1 b
+# 2 c
+
+UTILE PER:
+Sapere la posizione di un elemento
+
+Modificare elementi specifici (con l'indice)
+
+Stampare liste numerate
+
+Trovare elementi per posizione
+
+PARAMETRO start= (facoltativo):
+python
+for i, elemento in enumerate(lista, start=1):
+    print(i, elemento)
+
+# Output:
+# 1 a
+# 2 b
+# 3 c
