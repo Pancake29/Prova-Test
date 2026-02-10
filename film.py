@@ -38,20 +38,20 @@ for a in film:
         film_per_regista[regista] = []
     film_per_regista[regista].append(titolo)
     #print("Titolo:" +   titolo +       "Regista"   + regista)
-    print(f"Titolo: {titolo} - Regista: {regista}")
+print(film_per_regista)
 
 
-    lista_generi = a["genere"] # creo lista generi avendo il singolo film piu' di un genere
-    for genere_nome in lista_generi:
+lista_generi = a["genere"] # creo lista generi avendo il singolo film piu' di un genere
+for genere_nome in lista_generi:
         if genere_nome not in film_per_genere:
             film_per_genere[genere_nome] = []
         film_per_genere[genere_nome].append(titolo)
 
-        print("titolo: " + titolo + " - genere: " + genere_nome)
+print("titolo: " + titolo + " - genere: " + genere_nome)
 
 
 
-    print("_"*50)
+print("_"*50)
 
 print(f" Lista  {film}")
 print(F" Film per regista: {film_per_regista}")
