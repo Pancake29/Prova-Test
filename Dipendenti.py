@@ -52,6 +52,7 @@ print("="*80)
 #Nome e anni del più esperto
 
 esperienza_max = 0
+
 for dipendente in dipendenti:
     esperienza = dipendente["anni_esperienza"]
 
@@ -75,7 +76,7 @@ print("=" * 80)
 
 #5. REPARTO con STIPENDIO MEDIO PIÙ ALTO combinazione
 
-reparto_migliore = ""
+reparto_migliore = []
 media_max = 0
 
 for reparti, media_retr_reparto in stipendi_reparto.items():
@@ -92,7 +93,3 @@ for reparti, media_retr_reparto in stipendi_reparto.items():
         reparto_migliore.append(reparti)
 
 print(f"Nome Reparto Media Migliore: {reparto_migliore} {media_max}")
-
-
-
-

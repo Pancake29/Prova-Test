@@ -19,7 +19,7 @@ for indice, studente in enumerate(studenti):
 
 media_massima = 0
 studente_migliore = None
-medie_superiori = 0
+
 
 for studente in studenti:
     media = studente["media"]
@@ -30,12 +30,12 @@ for studente in studenti:
         studente_migliore = studente["nome"] + " " + studente["cognome"]
 print(f" Studente media migliore {studente_migliore} {media_massima}")
 
+
 for studente in studenti:
     voti = studente["media"]
     if voti > 26:
-        medie_superiori = voti
-        medie_superiori = studente["nome"] + "  " + studente["cognome"]
-        print(f" Medie oltre 26 {medie_superiori}  {voti}")
+        nominativo = studente["nome"] + "  " + studente["cognome"]
+        print(f" Medie oltre 26 {nominativo}  {voti}")
 
 cognomi = {}
 

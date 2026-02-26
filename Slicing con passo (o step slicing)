@@ -1,0 +1,58 @@
+Si chiama slicing con passo (o step slicing).
+
+📌 Nomi tecnici
+Slicing → perché "affetti" la lista (prendi una fetta)
+
+Step → perché specifichi il passo (2)
+
+"List slicing with step" in inglese
+
+In italiano: "affettamento con passo" o "selezione con passo"
+
+🔍 Sintassi completa
+python
+lista[inizio:fine:passo]
+inizio = indice da cui parti (default 0)
+
+fine = indice dove ti fermi (escluso, default fine lista)
+
+passo = ogni quanti elementi prendi (default 1)
+
+Nel tuo caso:
+
+python
+lista_mista[1::2]
+1 = parti dal secondo elemento
+
+fine = vuoto = vai fino alla fine
+
+2 = prendi un elemento ogni due
+
+🧠 Altri esempi
+Codice	Cosa fa
+lista[::2]	Prende elementi in posizioni pari
+lista[1::2]	Prende elementi in posizioni dispari
+lista[::-1]	Inverte la lista
+lista[2:5]	Prende elementi da indice 2 a 4
+
+for ruolo, lista_mista in ruolo_giocatore.items():
+    goals = lista_mista[1::2]          # estrae solo i goal @@@@@@@@@@@@@@
+    media = sum(goals) / len(goals)
+    print(f"{ruolo}: {media:.2f}")
+
+lista_mista[1::2] in italiano significa:
+
+Si chiama slicing con passo (o step slicing).
+
+"Prendi la lista a partire dal secondo elemento (indice 1),
+fino alla fine, e prendi un elemento ogni due (passo 2)."
+
+Quindi:
+
+1 → parte dal secondo elemento (indice 1)
+
+: → fino alla fine (non c'è un numero dopo)
+
+2 → salta un elemento ogni volta
+
+In pratica: prendi gli elementi in posizione dispari.

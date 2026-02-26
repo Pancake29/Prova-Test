@@ -7,3 +7,25 @@ Hai mostrato perfettamente come funzionano.
 
 DECIMALI
 {Costo:.2f}  2f
+==========================================================
+for ruolo, lista_mista in ruolo_giocatore.items():
+    goals = lista_mista[1::2]          # estrae solo i goal @@@@@@@@@@@@@@
+    media = sum(goals) / len(goals)
+    print(f"{ruolo}: {media:.2f}")
+
+lista_mista[1::2] in italiano significa:
+
+Si chiama slicing con passo (o step slicing).
+
+"Prendi la lista a partire dal secondo elemento (indice 1),
+fino alla fine, e prendi un elemento ogni due (passo 2)."
+
+Quindi:
+
+1 → parte dal secondo elemento (indice 1)
+
+: → fino alla fine (non c'è un numero dopo)
+
+2 → salta un elemento ogni volta
+
+In pratica: prendi gli elementi in posizione dispari.
